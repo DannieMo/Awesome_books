@@ -3,7 +3,8 @@ const bookTitle = document.getElementById('book-title');
 const bookAuthor = document.getElementById('book-author');
 const form = document.getElementById('form');
 
-function getBooks() {
+
+const getBooks = () => {
   let myBooks;
   if (localStorage.getItem('newBooks') === null) {
     myBooks = [];
@@ -13,7 +14,7 @@ function getBooks() {
   return myBooks;
 }
 
-function showBooks() {
+const showBooks = () => {
   bookSection.innerHTML = '';
   const myBooks = getBooks();
   for (let i = 0; i < myBooks.length; i += 1) {
@@ -30,19 +31,19 @@ function showBooks() {
   }
 }
 
-function clearInput() {
+const clearInput = () => {
   bookTitle.value = '';
   bookAuthor.value = '';
 }
 
-function setLocalStorage(item) {
+const setLocalStorage = (item) => {
   const books = getBooks();
   books.push(item);
 
   localStorage.setItem('newBooks', JSON.stringify(books));
 }
 
-function addBookToList(e) {
+const addBookToList = (e) => {
   e.preventDefault();
   if (bookTitle.value === '' && bookAuthor.value === '') {
     return;
@@ -58,7 +59,7 @@ function addBookToList(e) {
 
 // Remove book from localStorage
 /* eslint-disable no-unused-vars */
-function removeBook(id) {
+const removeBook = (id) => {
   const myBooks = getBooks();
   myBooks.splice(id, 1);
   localStorage.setItem('newBooks', JSON.stringify(myBooks));
