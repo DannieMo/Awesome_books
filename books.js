@@ -1,20 +1,20 @@
-const bookSection = document.querySelector(".books");
-const bookTitle = document.getElementById("book-title");
-const bookAuthor = document.getElementById("book-author");
-const form = document.getElementById("form");
+const bookSection = document.querySelector('.books');
+const bookTitle = document.getElementById('book-title');
+const bookAuthor = document.getElementById('book-author');
+const form = document.getElementById('form');
 
 const getBooks = () => {
   let myBooks;
-  if (localStorage.getItem("newBooks") === null) {
+  if (localStorage.getItem('newBooks') === null) {
     myBooks = [];
   } else {
-    myBooks = JSON.parse(localStorage.getItem("newBooks"));
+    myBooks = JSON.parse(localStorage.getItem('newBooks'));
   }
   return myBooks;
 };
 
 const showBooks = () => {
-  bookSection.innerHTML = "";
+  bookSection.innerHTML = '';
   const myBooks = getBooks();
   for (let i = 0; i < myBooks.length; i += 1) {
     const book = myBooks[i];
@@ -31,20 +31,20 @@ const showBooks = () => {
 };
 
 const clearInput = () => {
-  bookTitle.value = "";
-  bookAuthor.value = "";
+  bookTitle.value = '';
+  bookAuthor.value = '';
 };
 
 const setLocalStorage = (item) => {
   const books = getBooks();
   books.push(item);
 
-  localStorage.setItem("newBooks", JSON.stringify(books));
+  localStorage.setItem('newBooks', JSON.stringify(books));
 };
 
 const addBookToList = (e) => {
   e.preventDefault();
-  if (bookTitle.value === "" && bookAuthor.value === "") {
+  if (bookTitle.value === '' && bookAuthor.value === '') {
     return;
   }
   const newBook = {
@@ -61,10 +61,10 @@ const addBookToList = (e) => {
 const removeBook = (id) => {
   const myBooks = getBooks();
   myBooks.splice(id, 1);
-  localStorage.setItem("newBooks", JSON.stringify(myBooks));
+  localStorage.setItem('newBooks', JSON.stringify(myBooks));
   showBooks();
 };
 
-form.addEventListener("submit", addBookToList);
+form.addEventListener('submit', addBookToList);
 
 showBooks();
