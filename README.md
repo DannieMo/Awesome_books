@@ -7,11 +7,13 @@ This is the Awesome Books Project, coded according to the requirements provided 
 **Awesome Books**
 
 # Snaphot
+![image](https://user-images.githubusercontent.com/53879944/129606321-f68218e6-297d-407b-b432-9534980fe863.png)
+
 
 
 # Live Website
 
-Click [here]() to view the website online.
+Click [here](https://danniemo.github.io/Awesome_books/) to view the website online.
 
 # This project was built with:
 
