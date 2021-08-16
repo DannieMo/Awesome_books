@@ -56,6 +56,8 @@ function addBookToList(e) {
   showBooks();
 }
 
+// Remove book from localStorage
+/* eslint-disable no-unused-vars */
 function removeBook(id) {
   const myBooks = getBooks();
   myBooks.splice(id, 1);
