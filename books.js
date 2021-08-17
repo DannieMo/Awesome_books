@@ -40,12 +40,12 @@ class Page {
       bookSection.innerHTML += bookList;
     }
   }
-  
-  // This code clears the input field after books have been submitted 
+
+  // This code clears the input field after books have been submitted
   static clearInput = () => {
     bookTitle.value = '';
     bookAuthor.value = '';
-  }
+  };
 
   // Add books to local storage
   static setLocalStorage = (item) => {
@@ -53,7 +53,7 @@ class Page {
     books.push(item);
 
     localStorage.setItem('newBooks', JSON.stringify(books));
-  }
+  };
 }
 
 // Add new book to list
@@ -68,7 +68,7 @@ const addBookToList = (e) => {
   Page.clearInput();
   Page.setLocalStorage(newBook);
   Page.showBooks();
-}
+};
 
 form.addEventListener('submit', addBookToList);
 
@@ -79,6 +79,6 @@ const removeBook = (id) => {
   myBooks.splice(id, 1);
   localStorage.setItem('newBooks', JSON.stringify(myBooks));
   Page.showBooks();
-}
+};
 
 Page.showBooks();
