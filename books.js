@@ -22,6 +22,7 @@ class Page {
     }
     return myBooks;
   }
+
   // Div that contains books HTML
   static showBooks() {
     bookSection.innerHTML = '';
@@ -37,3 +38,47 @@ class Page {
     </div>
     `;
       bookSection.innerHTML += bookList;
+    }
+  }
+  
+  // This code clears the input field after books have been submitted 
+  static clearInput = () => {
+    bookTitle.value = '';
+    bookAuthor.value = '';
+  }
+
+  // Add books to local storage
+  static setLocalStorage = (item) => {
+    const books = this.getBooks();
+    books.push(item);
+
+    localStorage.setItem('newBooks', JSON.stringify(books));
+  }
+}
+
+// Add new book to list
+const addBookToList = (e) => {
+  e.preventDefault();
+  if (bookTitle.value === '' && bookAuthor.value === '') {
+    return;
+  }
+  const title = document.getElementById('book-title').value;
+  const author = document.getElementById('book-author').value;
+  const newBook = new AwesomeBooks(title, author);
+  Page.clearInput();
+  Page.setLocalStorage(newBook);
+  Page.showBooks();
+}
+
+form.addEventListener('submit', addBookToList);
+
+// Remove book from localStorage
+/* eslint-disable no-unused-vars */
+const removeBook = (id) => {
+  const myBooks = Page.getBooks();
+  myBooks.splice(id, 1);
+  localStorage.setItem('newBooks', JSON.stringify(myBooks));
+  Page.showBooks();
+}
+
+Page.showBooks();
