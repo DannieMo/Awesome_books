@@ -68,7 +68,7 @@ const addBookToList = (e) => {
   Page.clearInput();
   Page.setLocalStorage(newBook);
   Page.showBooks();
-}
+};
 
 form.addEventListener('submit', addBookToList);
 
@@ -79,6 +79,6 @@ const removeBook = (id) => {
   myBooks.splice(id, 1);
   localStorage.setItem('newBooks', JSON.stringify(myBooks));
   Page.showBooks();
-}
+};
 
 Page.showBooks();
