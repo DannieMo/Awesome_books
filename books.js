@@ -1,24 +1,35 @@
+/* eslint-disable max-classes-per-file */
 const bookSection = document.querySelector('.books');
 const bookTitle = document.getElementById('book-title');
 const bookAuthor = document.getElementById('book-author');
 const form = document.getElementById('form');
 
-const getBooks = () => {
-  let myBooks;
-  if (localStorage.getItem('newBooks') === null) {
-    myBooks = [];
-  } else {
-    myBooks = JSON.parse(localStorage.getItem('newBooks'));
+class AwesomeBooks {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
   }
-  return myBooks;
-};
+}
 
-const showBooks = () => {
-  bookSection.innerHTML = '';
-  const myBooks = getBooks();
-  for (let i = 0; i < myBooks.length; i += 1) {
-    const book = myBooks[i];
-    const bookList = `
+class Page {
+  // Check if books are in LocalStorage
+  static getBooks() {
+    let myBooks;
+    if (localStorage.getItem('newBooks') === null) {
+      myBooks = [];
+    } else {
+      myBooks = JSON.parse(localStorage.getItem('newBooks'));
+    }
+    return myBooks;
+  }
+
+  // Div that contains books HTML
+  static showBooks() {
+    bookSection.innerHTML = '';
+    const myBooks = this.getBooks();
+    for (let i = 0; i < myBooks.length; i += 1) {
+      const book = myBooks[i];
+      const bookList = `
     <div id="book-info">
     <p>${book.title}</p>
     <p>${book.author}</p>
@@ -26,45 +37,48 @@ const showBooks = () => {
     <hr> 
     </div>
     `;
-    bookSection.innerHTML += bookList;
+      bookSection.innerHTML += bookList;
+    }
   }
-};
 
-const clearInput = () => {
-  bookTitle.value = '';
-  bookAuthor.value = '';
-};
+  // This code clears the input field after books have been submitted
+  static clearInput = () => {
+    bookTitle.value = '';
+    bookAuthor.value = '';
+  }
 
-const setLocalStorage = (item) => {
-  const books = getBooks();
-  books.push(item);
+  // Add books to local storage
+  static setLocalStorage = (item) => {
+    const books = this.getBooks();
+    books.push(item);
 
-  localStorage.setItem('newBooks', JSON.stringify(books));
-};
+    localStorage.setItem('newBooks', JSON.stringify(books));
+  }
+}
 
+// Add new book to list
 const addBookToList = (e) => {
   e.preventDefault();
   if (bookTitle.value === '' && bookAuthor.value === '') {
     return;
   }
-  const newBook = {
-    title: bookTitle.value,
-    author: bookAuthor.value,
-  };
-  clearInput();
-  setLocalStorage(newBook);
-  showBooks();
-};
-
-// Remove book from localStorage
-/* eslint-disable no-unused-vars */
-const removeBook = (id) => {
-  const myBooks = getBooks();
-  myBooks.splice(id, 1);
-  localStorage.setItem('newBooks', JSON.stringify(myBooks));
-  showBooks();
+  const title = document.getElementById('book-title').value;
+  const author = document.getElementById('book-author').value;
+  const newBook = new AwesomeBooks(title, author);
+  Page.clearInput();
+  Page.setLocalStorage(newBook);
+  Page.showBooks();
 };
 
 form.addEventListener('submit', addBookToList);
 
-showBooks();
+// Remove book from localStorage
+/* eslint-disable no-unused-vars */
+const removeBook = (id) => {
+  const myBooks = Page.getBooks();
+  myBooks.splice(id, 1);
+  localStorage.setItem('newBooks', JSON.stringify(myBooks));
+  Page.showBooks();
+};
+
+Page.showBooks();
