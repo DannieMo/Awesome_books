@@ -23,3 +23,40 @@ hr {
   margin: 50px auto;
   border-top: 3px solid dimgray;
 }
+#books {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  height: auto;
+  border: 3px solid dimgray;
+  padding: 15px 0;
+  grid-template-columns: 1fr;
+}
+#book-info {
+  padding: 10px 15px;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+#book-info:nth-child(odd) {
+  background-color: rgba(119, 136, 153, 0.296);
+}
+#book-info button,
+#form button {
+  padding: 5px 10px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 dimgray;
+}
+#form-section {
+  margin-top: 50px;
+  text-align: center;
+}
+#form-section h2 {
+  font-size: 35px;
+  color: dimgray ;
