@@ -17,7 +17,7 @@ const time = document.getElementById('current-time');
 const reloadTime = () => {
   const theTime = luxon.DateTime.now();
   time.innerHTML = theTime.toLocaleString(luxon.DateTime.DATETIME_FULL_WITH_SECONDS);
-}
+};
 const myTime = setInterval(reloadTime, 1000);
 
 /* eslint-disable no-undef */
