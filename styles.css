@@ -215,3 +215,17 @@ input {
   font-size: 15px;
   text-align: center;
 }
+
+/* Footer Section Styling */
+
+footer {
+  width: 100%;
+  background-color: rgb(38, 37, 37);
+  color: #f4f4f4;
+  position: fixed;
+  bottom: 0;
+}
+
+.hide {
+  display: none;
+}
