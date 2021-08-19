@@ -10,7 +10,6 @@ This is the Awesome Books Project, coded according to the requirements provided 
 ![image](https://user-images.githubusercontent.com/53879944/130098067-3a0ac89a-fd92-4bda-89d9-1cfca84cdf9e.png)
 
 
-
 # Live Website
 
 Click [here](https://danniemo.github.io/Awesome_books/) to view the website online.

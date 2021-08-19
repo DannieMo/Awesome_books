@@ -11,10 +11,11 @@ body {
   background-color: #fff;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
   margin: 50px auto;
-  font-size: 55px;
+  font-size: 30px;
   color: dimgray;
 }
 
@@ -23,6 +24,89 @@ hr {
   margin: 50px auto;
   border-top: 3px solid dimgray;
 }
+
+/* Header Section Styling */
+header {
+  width: 100%;
+}
+
+.main-nav {
+  background-color: ghostwhite;
+  box-shadow: 0 1px 15px rgb(97, 97, 97);
+}
+
+#current-time,
+footer p,
+#page-nav {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#books,
+#contact,
+#form-section {
+  transition: 400ms ease-in-out;
+}
+
+#page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  margin: 0 auto;
+}
+
+#contact a,
+#page-nav span a {
+  text-decoration: none;
+  color: dimgray;
+  transition: 250ms ease-out;
+}
+
+#page-nav span a {
+  font-weight: bolder;
+  font-size: 17px;
+}
+
+#page-nav ul li a {
+  font-size: 15px;
+  text-decoration: none;
+  transition: 300ms ease-in-out;
+  color: dimgray;
+}
+
+#contact a:hover,
+#page-nav li a:hover,
+#page-nav span a:hover {
+  color: red;
+}
+
+#page-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+#page-nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+  border-right: 2px solid dimgray;
+  padding-right: 10px;
+}
+
+#page-nav ul li:last-of-type {
+  border-right: none;
+}
+
+#current-time {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Styling For Book Section */
 
 #books {
   display: grid;
@@ -58,6 +142,14 @@ hr {
   box-shadow: 3px 3px 0 dimgray;
 }
 
+footer p {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  justify-content: center;
+}
+
 #form-section {
   margin-top: 50px;
   text-align: center;
@@ -88,4 +180,56 @@ input {
   align-self: center;
   padding: 7px 30px;
   font-size: 16px;
+}
+
+#book-info button:hover,
+#form button:hover {
+  background-color: #333;
+  color: #eee;
+  transform: scale(0.95);
+}
+
+/* Sytling For Contact Form Section */
+
+#contact {
+  margin: 40px auto;
+  width: 50%;
+}
+
+#contact h2 {
+  margin-bottom: 40px;
+}
+
+.contact-info {
+  border: 3px solid dimgray;
+  padding: 10px;
+  align-items: center;
+}
+
+#contact h3 {
+  font-size: 16px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: dimgray;
+}
+
+#contact address {
+  padding-left: 15px;
+  line-height: 1.9;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Footer Section Styling */
+
+footer {
+  width: 100%;
+  background-color: rgb(38, 37, 37);
+  color: #f4f4f4;
+  position: fixed;
+  bottom: 0;
+}
+
+.hide {
+  display: none;
 }
